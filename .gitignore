@@ -1,5 +1,5 @@
 # Common .gitignore file for all Orbitary projects.
-# This file should not be edited directly. Instead edit it in: https://github.com/Orbitary/Convention
+# This file should not be edited directly. Instead edit it in: https://github.com/Orbitary/Convention/edit/main/.gitignore
 
 # ── Gradle ─────────────────────────────────────────
 .gradle/
@@ -63,6 +63,10 @@ Desktop.ini
 # ── Minecraft ──────────────────────────────────────
 run/
 plugins/
+
+
+# ── Node ───────────────────────────────────────────
+node_modules/
 
 
 # ── Agents ─────────────────────────────────────────
