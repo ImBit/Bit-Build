@@ -3,6 +3,8 @@ name: Sync files to consumer repos
 on:
   push:
     branches: [main]
+    paths:
+      - '.github/sync.yml'
   workflow_dispatch:
 
 jobs:
