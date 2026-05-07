@@ -5,7 +5,6 @@ import net.ltgt.gradle.errorprone.CheckSeverity
 import net.ltgt.gradle.errorprone.errorprone
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.publish.PublishingExtension
@@ -15,7 +14,6 @@ import org.gradle.api.tasks.javadoc.Javadoc
 import org.gradle.external.javadoc.StandardJavadocDocletOptions
 import org.gradle.jvm.tasks.Jar
 import org.gradle.kotlin.dsl.*
-import org.gradle.language.assembler.tasks.Assemble
 import xyz.bitsquidd.BuildUtil.standardiseDirectories
 import xyz.bitsquidd.util.CustomDependencyConfig
 import xyz.bitsquidd.util.ProjectProperty
@@ -72,6 +70,13 @@ class BitConventionPlugin : Plugin<Project> {
             if (group.toString().isBlank() || version.toString() == "unspecified") {
                 throw IllegalStateException("Project group or version is not set.")
             }
+
+            val mainSources = extensions.findByType<JavaPluginExtension>()
+                ?.sourceSets
+                ?.findByName("main")
+                ?: return@afterEvaluate
+
+            if (mainSources.allSource.isEmpty) return@afterEvaluate
 
             extensions.configure<PublishingExtension> {
                 publications {
