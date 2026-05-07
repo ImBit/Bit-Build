@@ -18,7 +18,6 @@ group:
       # ── Misc ────────────────────────────────────────────────────
       - source: LICENSE
         replace: false
-      - source: template/package-info.template
       - source: libs
       - source: renovate.json
         replace: false
@@ -43,7 +42,10 @@ group:
         dest: build.gradle.kts
         replace: false
 
+      # ── Misc ────────────────────────────────────────────────────
+      - source: template/package-info.template
+
   - name: Node
     repos: |
       Orbitary/Docs
-    files: []
+    files: [ ]
