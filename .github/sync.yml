@@ -1,5 +1,30 @@
 group:
-  - repos: |
+  - name: All
+    repos: |
+      Orbitary/Bits
+      Orbitary/PacketNinja
+      Orbitary/Docs
+    files:
+      # ── IDE ────────────────────────────────────────────────────
+      - source: .idea/copyright
+      - source: .idea/codeStyles
+      - source: .idea/inspectionProfiles
+      - source: .editorconfig
+
+      # ── Git ────────────────────────────────────────────────────
+      - source: .gitignore     # TODO: Have specific .gitignores for each type of project
+      - source: .gitattributes
+
+      # ── Misc ────────────────────────────────────────────────────
+      - source: LICENSE
+        replace: false
+      - source: template/package-info.template
+      - source: libs
+      - source: renovate.json
+        replace: false
+
+  - name: Java
+    repos: |
       Orbitary/Bits
       Orbitary/PacketNinja
     files:
@@ -18,20 +43,7 @@ group:
         dest: build.gradle.kts
         replace: false
 
-      # ── Git ────────────────────────────────────────────────────
-      - source: .gitignore
-      - source: .gitattributes
-
-      # ── IDE ────────────────────────────────────────────────────
-      - source: .idea/copyright
-      - source: .idea/codeStyles
-      - source: .idea/inspectionProfiles
-      - source: .editorconfig
-
-      # ── Misc ────────────────────────────────────────────────────
-      - source: LICENSE
-        replace: false
-      - source: template/package-info.template
-      - source: libs
-      - source: renovate.json
-        replace: false
+  - name: Node
+    repos: |
+      Orbitary/Docs
+    files:
