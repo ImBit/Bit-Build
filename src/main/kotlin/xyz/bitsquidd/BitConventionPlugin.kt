@@ -38,17 +38,13 @@ class BitConventionPlugin : Plugin<Project> {
             // Configure plugins first.
             configurePlugins()
             configureStandardDependencies()
-            configureErrorProne()
-            configureShadowJar()
-        }
 
-        // Configure extensions, dependencies, and tasks.
-        // Must be called AFTER plugins are applied above.
-        // SUBPROJECTS - plugins, extensions
-        target.subprojects {
+            configurePublishing()
             configureExtensions()
             configureTasks()
-            configurePublishing()
+
+            configureErrorProne()
+            configureShadowJar()
         }
 
         // ROOT ONLY - directory standardisation
