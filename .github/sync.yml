@@ -4,6 +4,7 @@ group:
       Orbitary/Bits
       Orbitary/PacketNinja
       Orbitary/Docs
+      Orbitary/Notion-SDK-Java
     files:
       # ── IDE ────────────────────────────────────────────────────
       - source: .idea/copyright
